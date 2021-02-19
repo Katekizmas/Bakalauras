@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 //import { PrisijungimasComponent } from './autentifikacija/prisijungimas/prisijungimas.component'; 
 import { NerastasPuslapisComponent } from './nerastas-puslapis/nerastas-puslapis.component';
 import { PatvirtinimasGuard } from './patvirtinimas.guard';
+//import { AuthGuard } from './apsauga/guards/auth.guard';
 
 const routes: Routes = [
   /*{path: '', component: PrisijungimasComponent},

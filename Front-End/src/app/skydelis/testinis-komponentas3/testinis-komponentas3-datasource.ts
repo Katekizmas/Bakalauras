@@ -41,8 +41,8 @@ const EXAMPLE_DATA: TestinisKomponentas3Item[] = [
  */
 export class TestinisKomponentas3DataSource extends DataSource<TestinisKomponentas3Item> {
   data: TestinisKomponentas3Item[] = EXAMPLE_DATA;
-  paginator: MatPaginator;
-  sort: MatSort;
+  paginator!: MatPaginator;
+  sort!: MatSort;
 
   constructor() {
     super();

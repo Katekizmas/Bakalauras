@@ -1,6 +1,9 @@
 const express = require('express');
-const klientas = require("../konfiguracijos/serveris.konfiguracija");
 const router = express.Router();
+
+const klientas = require("../konfiguracijos/serveris.konfiguracija");
+const apiKlaidos = require("../klaidos/apiKlaidos");
+
 
 
 router.post("/", async(req,res) => {
@@ -15,10 +18,17 @@ router.post("/", async(req,res) => {
 });
 
 //gauti visus irasus
-router.get("/", async(req,res) => {
+router.get("/", async(req, res, next) => {
     try{
         const uzklausa = await klientas.query("SELECT * from testas;");
         res.json(uzklausa.rows);
+        /*if(uzklausa){
+            res.json(uzklausa.rows);
+        } else {
+            apiKlaidos.blogaUzklausa("Va toki ;)");
+            return;
+        }*/
+        
     }catch(klaida){
         console.log(klaida);
         res.status(404).json({ pranesimas : klaida });

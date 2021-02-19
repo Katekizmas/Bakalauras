@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; // pridejau cionais
 @Component({
   selector: 'app-prisijungimas',
@@ -7,12 +9,28 @@ import { Router } from '@angular/router'; // pridejau cionais
 })
 export class PrisijungimasComponent implements OnInit {
   laikotarpis: number = new Date().getFullYear();
-  constructor(private navigacija: Router) { }
+  prisijungimoForma: FormGroup;
+
+  constructor(private _http: HttpClient,
+              private navigacija: Router,
+              private fb: FormBuilder) {
+                this.prisijungimoForma = this.fb.group({
+                  slapyvardis: ['', Validators.required],
+                  slaptazodis: ['', Validators.required]
+                });
+               }
 
   ngOnInit(): void {
   }
 
   prisijungimasAutentifikacija(){
-    this.navigacija.navigate(['/pagrindinis']);
+    const duomenys = this.prisijungimoForma.value;
+    //this.navigacija.navigate(['/pagrindinis']);
+  }
+  prisijungimasRegistracija(){
+    this.navigacija.navigate(['/registracija']);
+  }
+  prisijungimasSlaptazodis(){
+    this.navigacija.navigate(['/slaptazodis']);
   }
 }

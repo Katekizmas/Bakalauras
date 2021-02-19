@@ -26,18 +26,16 @@
                                 </a>
                             </div>
                             <div class="p-2">
-                                <form class="form-horizontal" action="pagrindinis">
-    
-                                    <div class="form-group">
-                                        <label for="slapyvardis">Slapyvardis</label>
-                                        <input type="text" class="form-control" id="slapyvardis" placeholder="Įveskite slapyvardį">
-                                    </div>
-            
-                                    <div class="form-group">
-                                        <label for="slaptazodis">Slaptažodis</label>
-                                        <input type="password" class="form-control" id="slaptazodis" placeholder="Įveskite slaptažodį">
-                                    </div>
-            
+                                <form class="form-horizontal" action="pagrindinis" [formGroup]="prisijungimoForma">
+                                        <div class="form-group">
+                                            <label for="slapyvardis">Slapyvardis</label>
+                                            <input type="text" class="form-control" id="slapyvardis" placeholder="Įveskite slapyvardį" formControlName="slapyvardis">
+                                        </div>
+                
+                                        <div class="form-group">
+                                            <label for="slaptazodis">Slaptažodis</label>
+                                            <input type="password" class="form-control" id="slaptazodis" type="password" placeholder="Įveskite slaptažodį" formControlName="slaptazodis">
+                                        </div>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customControlInline">
                                         <label class="custom-control-label" for="customControlInline">Prisiminti mane</label>
@@ -48,14 +46,14 @@
                                     </div>
                                     <!-- type="submit" -->
                                     <div class="mt-4 text-center">
-                                        <a href="#" class="text-muted"><i class="mdi mdi-lock mr-1"></i>Pamiršai slaptažodį?</a>
+                                        <a (click)="prisijungimasSlaptazodis()" class="text-muted"><i class="mdi mdi-lock mr-1"></i>Pamiršai slaptažodį?</a>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="mt-3 text-center text-white">
-                        <p>Neturite vartotojo? <a href="#" class="font-weight-medium text-white"> Užsiregistruoti </a> </p>
+                        <p>Neturite vartotojo? <a (click)="prisijungimasRegistracija()" class="font-weight-medium text-white"> Užsiregistruoti </a> </p>
                         <p>© {{laikotarpis}} P.Norkus-Bakalauras</p>
                     </div>
                 </div>

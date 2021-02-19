@@ -6,7 +6,10 @@ const klientas = new Pool({
     password: process.env.PGPASSWORD,
     database: process.env.PGDATABASE,
     host: process.env.PGHOST,
-    port: process.env.PGPORT
+    port: process.env.PGPORT,
+    max: 20,
+    connectionTimeoutMillis : 0,
+    idleTimeoutMillis: 0
 });
 
 module.exports = klientas;

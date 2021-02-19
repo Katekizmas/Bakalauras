@@ -12,6 +12,18 @@ class apiKlaidos{
     static vidineKlaida(pranesimas){
         return new apiKlaidos(500, pranesimas);
     }
+
+    static neautorizuotasVartotojas(pranesimas){
+        return new apiKlaidos(401, pranesimas);
+    }
+
+    static blogasTokenas(pranesimas){
+        return new apiKlaidos(403, pranesimas);
+    }
+
+    static sekmingasIstrinimas(pranesimas){
+        return new apiKlaidos(204, pranesimas);
+    }
 }
 
 module.exports = apiKlaidos;
