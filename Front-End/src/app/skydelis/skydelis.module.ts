@@ -9,21 +9,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { TestinisKomponentasComponent } from './testinis-komponentas/testinis-komponentas.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { TestinisKomponentas2Component } from './testinis-komponentas2/testinis-komponentas2.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TestinisKomponentas3Component } from './testinis-komponentas3/testinis-komponentas3.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { TvarkarastisComponent } from './tvarkarastis/tvarkarastis.component';
+import { TestinisComponent } from './testinis/testinis.component';
+import { MaterialModule } from '../material.module';
 
+//import { MatSidenav } from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [NavigacijaComponent, TestinisKomponentasComponent, TestinisKomponentas2Component, TestinisKomponentas3Component],
+  declarations: [NavigacijaComponent, TvarkarastisComponent, TestinisComponent],
   imports: [
+    MaterialModule,
     CommonModule,
     SkydelisRoutingModule,
     LayoutModule,

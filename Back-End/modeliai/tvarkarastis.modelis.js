@@ -1,20 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-const klientas = require("../konfiguracijos/serveris.konfiguracija");
+const uzklausaTvarkarastis = require("../uzklausos/tvarkarastis.uzklausa");
 const apiKlaidos = require("../klaidos/apiKlaidos");
+const auth = require("./sessionauth.modelis");
 
 
-
-router.post("/", async(req,res) => {
-    try{
+router.get("/", auth.patikrintiCookie, async(req, res) => {
+    uzklausaTvarkarastis.gautiTvarkarascius(req.SESIJOS_ID.id).then(tvarkarastis => {
+        res.json({
+            tvarkarastis
+        });
+    });
+    /*try{
         const { aprasymas } = req.body;
         const uzklausa = await klientas.query("INSERT INTO testas(vardas) VALUES($1) RETURNING *;", 
         [aprasymas]);
         res.json(uzklausa.rows);
     }catch(klaida){
         res.status(404).json({ pranesimas : klaida });
-    }
+    }*/
 });
 
 //gauti visus irasus
@@ -70,4 +75,5 @@ router.delete("/:gaunamasId", async(req,res) => {
         res.status(404).json({ pranesimas : klaida });
     }
 });
+
 module.exports = router;

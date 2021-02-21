@@ -10,7 +10,7 @@ const programa = express();
 const PORT = process.env.PORT || 6900;
 
 programa.use(cors({
-    origin: "http://localhost:6900",
+    origin: "http://localhost:4200",// serverio front-end adresas
     credentials: true,
 }));
 programa.use(express.json());

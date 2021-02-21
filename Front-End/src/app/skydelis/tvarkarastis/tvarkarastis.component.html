@@ -1,0 +1,16 @@
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Aprašymas</th>
+        <th>Laikas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tvar of tvarkarastis">
+        <td><span>{{tvar.aprasymas}}</span></td>
+        <td><span>{{tvar.laikas}}</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="autentifikacija()" class="btn btn-secondary btn-block waves-effect waves-light" >Autentifikacija</button>
+  <button (click)="gautiTvarkarascius()" class="btn btn-secondary btn-block waves-effect waves-light" >Tvarkarastis</button>

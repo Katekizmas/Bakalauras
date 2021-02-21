@@ -1,11 +1,9 @@
-//const express = require('express');
 const uzklausaAutentifikacija = require("../uzklausos/autentifikacija.uzklausa");
 const klientas = require("../konfiguracijos/serveris.konfiguracija");
 const apiKlaidos = require("../klaidos/apiKlaidos");
 
 
 function patikrintiArYraPastas(req, res, next){
-    //
     if(patvirtintiVartotoja(req.body)){
 
         uzklausaAutentifikacija.gautiVienaPagalPasta(req.body.pastas).then(vartotojas => {
@@ -53,10 +51,6 @@ function patikrintiArNeraPastas(req, res, next){
         return;
     }
 }
-
-
-
-
 
 function patvirtintiVartotoja(vartotojas){
     const tinkamasPastas = typeof vartotojas.pastas == 'string' &&

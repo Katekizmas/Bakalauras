@@ -10,9 +10,22 @@ const auth = require("./sessionauth.modelis");
 
 
 //gauti visus irasus
-router.post("/", auth.patikrintiCookie, async(req, res) => {
+router.get("/refresh", auth.patikrintiCookie, async(req, res) => {
     res.json({
-        pranesimas: "zdarova"
+        klaida: 200,
+        id: req.SESIJOS_ID.id,
+        role: req.SESIJOS_ID.role,
+        pastas: req.SESIJOS_ID.pastas
+    });
+});
+
+//
+router.get("/", auth.patikrintiCookie, async(req, res) => {
+    res.json({
+        klaida: 200,
+        id: req.SESIJOS_ID.id,
+        role: req.SESIJOS_ID.role,
+        pastas: req.SESIJOS_ID.pastas
     });
 });
 
